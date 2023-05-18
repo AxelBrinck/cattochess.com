@@ -1,6 +1,6 @@
 using CattoChess.Core.Exceptions;
 
-namespace CattoChess.Domain.Games.ValueObjects;
+namespace CattoChess.Features.Games.Domain.ValueObjects;
 
 public sealed record GameId
 {

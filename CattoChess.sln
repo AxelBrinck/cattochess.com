@@ -5,7 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core", "CattoChess.Core\CattoChess.Core.csproj", "{A7CE7170-BD97-4098-A1B8-446A72AD2746}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Domain", "CattoChess.Domain\CattoChess.Domain.csproj", "{5D8DC2DA-C67E-4AB9-B43A-9E0AA2D1E48E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{4CDE9632-71A8-46FD-9F2F-AF542790A313}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{28CC87E1-88C2-4124-B358-1B895742E420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Games.Domain", "CattoChess.Features\Games\Domain\CattoChess.Features.Games.Domain.csproj", "{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +24,13 @@ Global
 		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D8DC2DA-C67E-4AB9-B43A-9E0AA2D1E48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D8DC2DA-C67E-4AB9-B43A-9E0AA2D1E48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D8DC2DA-C67E-4AB9-B43A-9E0AA2D1E48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D8DC2DA-C67E-4AB9-B43A-9E0AA2D1E48E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{28CC87E1-88C2-4124-B358-1B895742E420} = {4CDE9632-71A8-46FD-9F2F-AF542790A313}
+		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F} = {28CC87E1-88C2-4124-B358-1B895742E420}
 	EndGlobalSection
 EndGlobal

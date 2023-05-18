@@ -71,6 +71,8 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : notnull
         action.Invoke();
     }
 
+    public abstract void Apply(DomainEvent @event);
+
     public sealed class EventNotNewerToBeApplied : DomainException
     {
         
