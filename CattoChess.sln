@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core", "CattoChe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{4CDE9632-71A8-46FD-9F2F-AF542790A313}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{28CC87E1-88C2-4124-B358-1B895742E420}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Boards", "Boards", "{28CC87E1-88C2-4124-B358-1B895742E420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Games.Domain", "CattoChess.Features\Games\Domain\CattoChess.Features.Games.Domain.csproj", "{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Boards.Domain", "CattoChess.Features\Boards\Domain\CattoChess.Features.Boards.Domain.csproj", "{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
