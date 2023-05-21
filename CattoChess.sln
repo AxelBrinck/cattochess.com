@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core", "CattoChess.Core\CattoChess.Core.csproj", "{A7CE7170-BD97-4098-A1B8-446A72AD2746}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core", "CattoChess.Core\CattoChess.Core.csproj", "{79674D9F-51B1-41D6-9712-C05E7AB377C9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{4CDE9632-71A8-46FD-9F2F-AF542790A313}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{08436491-51CE-4157-9454-DD4F7DA9313C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Boards", "Boards", "{28CC87E1-88C2-4124-B358-1B895742E420}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Boards", "Boards", "{B74B5443-EB5D-4AE3-BD91-0A77E714C68F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Boards.Domain", "CattoChess.Features\Boards\Domain\CattoChess.Features.Boards.Domain.csproj", "{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Boards.Domain", "CattoChess.Features\Boards\Domain\CattoChess.Features.Boards.Domain.csproj", "{822FD664-B277-43B4-950A-B8380ADF809F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pieces", "Pieces", "{1F3BB18A-89DC-495D-A42A-2263EBB6CB78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Pieces.Domain", "CattoChess.Features\Pieces\Domain\CattoChess.Features.Pieces.Domain.csproj", "{47ED8981-BB69-4706-959C-640707EC241D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Host", "CattoChess.Host\CattoChess.Host.csproj", "{3B7B897E-B2C7-4C54-B637-5F217A46212F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,17 +26,27 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7CE7170-BD97-4098-A1B8-446A72AD2746}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79674D9F-51B1-41D6-9712-C05E7AB377C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79674D9F-51B1-41D6-9712-C05E7AB377C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79674D9F-51B1-41D6-9712-C05E7AB377C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79674D9F-51B1-41D6-9712-C05E7AB377C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822FD664-B277-43B4-950A-B8380ADF809F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822FD664-B277-43B4-950A-B8380ADF809F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822FD664-B277-43B4-950A-B8380ADF809F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822FD664-B277-43B4-950A-B8380ADF809F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47ED8981-BB69-4706-959C-640707EC241D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ED8981-BB69-4706-959C-640707EC241D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ED8981-BB69-4706-959C-640707EC241D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ED8981-BB69-4706-959C-640707EC241D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{28CC87E1-88C2-4124-B358-1B895742E420} = {4CDE9632-71A8-46FD-9F2F-AF542790A313}
-		{87A97514-4561-4FBB-A6E0-C9BE388D5F3F} = {28CC87E1-88C2-4124-B358-1B895742E420}
+		{B74B5443-EB5D-4AE3-BD91-0A77E714C68F} = {08436491-51CE-4157-9454-DD4F7DA9313C}
+		{822FD664-B277-43B4-950A-B8380ADF809F} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
+		{1F3BB18A-89DC-495D-A42A-2263EBB6CB78} = {08436491-51CE-4157-9454-DD4F7DA9313C}
+		{47ED8981-BB69-4706-959C-640707EC241D} = {1F3BB18A-89DC-495D-A42A-2263EBB6CB78}
 	EndGlobalSection
 EndGlobal
