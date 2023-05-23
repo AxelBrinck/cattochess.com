@@ -12,10 +12,10 @@ public sealed class Piece : AggregateRoot<PieceId>
 
     public static Piece Create(
         Guid id,
-        Guid boardId,
+        Guid GridBoardId,
         ITimeProvider timeProvider)
     {
-        var @event = new PieceCreated(id, boardId, timeProvider);
+        var @event = new PieceCreated(id, GridBoardId, timeProvider);
         var piece = new Piece(@event);
         piece.Enqueue(@event);
         return piece;

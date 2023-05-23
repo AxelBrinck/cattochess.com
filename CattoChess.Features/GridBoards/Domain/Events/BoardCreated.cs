@@ -1,14 +1,14 @@
 using CattoChess.Core;
 
-namespace CattoChess.Features.Board.Domain.Events;
+namespace CattoChess.Features.GridBoard.Domain.Events;
 
-public sealed record BoardCreated : DomainEvent
+public sealed record GridBoardCreated : DomainEvent
 {
     public Guid Id { get; }
     public int Rows { get; }
     public int Columns { get; }
 
-    public BoardCreated(
+    public GridBoardCreated(
         Guid id,
         int rows,
         int columns,
@@ -20,7 +20,7 @@ public sealed record BoardCreated : DomainEvent
         Columns = columns;
     }
 
-    public BoardCreated(
+    public GridBoardCreated(
         Guid id,
         int rows,
         int columns,

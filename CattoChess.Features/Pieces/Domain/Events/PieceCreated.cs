@@ -5,25 +5,25 @@ namespace CattoChess.Features.Pieces.Domain.Events;
 public sealed record PieceCreated : DomainEvent
 {
     public Guid Id { get; }
-    public Guid BoardId { get; }
+    public Guid GridBoardId { get; }
 
     public PieceCreated(
         Guid id,
-        Guid boardId,
+        Guid gridBoardId,
         ITimeProvider timeProvider
     ) : base(timeProvider)
     {
         Id = id;
-        BoardId = boardId;
+        GridBoardId = gridBoardId;
     }
 
     public PieceCreated(
         Guid id,
-        Guid boardId,
+        Guid gridBoardId,
         DateTime timestamp
     ) : base(timestamp)
     {
         Id = id;
-        BoardId = boardId;
+        GridBoardId = gridBoardId;
     }
 }
