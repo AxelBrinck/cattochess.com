@@ -1,6 +1,6 @@
 using CattoChess.Core.Exceptions;
 
-namespace CattoChess.Features.GridBoard.Domain.ValueObjects;
+namespace CattoChess.Features.GridBoards.Domain.ValueObjects;
 
 public sealed record GridBoardId
 {

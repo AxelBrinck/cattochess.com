@@ -1,15 +1,14 @@
 using CattoChess.Core;
-using CattoChess.Features.GridBoard.Domain.Events;
-using CattoChess.Features.GridBoard.Domain.ValueObjects;
+using CattoChess.Features.GridBoards.Domain.Events;
+using CattoChess.Features.GridBoards.Domain.ValueObjects;
 
-namespace CattoChess.Features.GridBoard.Domain;
+namespace CattoChess.Features.GridBoards.Domain;
 
-public sealed class GridBoard : AggregateRoot<GridBoardId>
+public sealed class GridBoard : AggregateRoot<Guid>
 {
-    private Guid[,] grid { get; }
-
-    public GridBoard(GridBoardCreated @event) : base(@event.Id, @event.Timestamp) =>
-        grid = new Guid[@event.Columns, @event.Rows];
+    public GridBoard(GridBoardCreated @event) : base(@event.Id, @event.Timestamp)
+    {
+    }
 
     public static GridBoard Create(
         GridBoardId GridBoardId,

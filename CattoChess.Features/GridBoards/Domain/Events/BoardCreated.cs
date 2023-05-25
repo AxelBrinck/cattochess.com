@@ -1,6 +1,6 @@
 using CattoChess.Core;
 
-namespace CattoChess.Features.GridBoard.Domain.Events;
+namespace CattoChess.Features.GridBoards.Domain.Events;
 
 public sealed record GridBoardCreated : DomainEvent
 {

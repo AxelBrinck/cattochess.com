@@ -1,9 +1,11 @@
 namespace CattoChess.Core;
 
-public interface IRepository<TEntity, TId>
+public interface IRepository<TAggregateRoot, TId>
+    where TAggregateRoot : AggregateRoot<TId>
+    where TId : notnull
 {
-    ValueTask<TEntity> GetById(TId id);
-    ValueTask Insert(TEntity entity);
-    ValueTask Update(TEntity entity);
+    ValueTask<TAggregateRoot> GetById(TId id);
+    ValueTask Insert(TAggregateRoot aggregate);
+    ValueTask Update(TAggregateRoot entity);
     ValueTask DeleteById(TId id);
 }

@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Pieces.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Host", "CattoChess.Host\CattoChess.Host.csproj", "{3B7B897E-B2C7-4C54-B637-5F217A46212F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.GridBoards.Infrastructure", "CattoChess.Features\GridBoards\Infrastructure\CattoChess.Features.GridBoards.Infrastructure.csproj", "{16B0794B-680E-4C3C-9665-600596833AB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.GridBoards.Service", "CattoChess.Features\GridBoards\Service\CattoChess.Features.GridBoards.Service.csproj", "{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,11 +46,21 @@ Global
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B0794B-680E-4C3C-9665-600596833AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B0794B-680E-4C3C-9665-600596833AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B0794B-680E-4C3C-9665-600596833AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B0794B-680E-4C3C-9665-600596833AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B74B5443-EB5D-4AE3-BD91-0A77E714C68F} = {08436491-51CE-4157-9454-DD4F7DA9313C}
 		{822FD664-B277-43B4-950A-B8380ADF809F} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
 		{1F3BB18A-89DC-495D-A42A-2263EBB6CB78} = {08436491-51CE-4157-9454-DD4F7DA9313C}
 		{47ED8981-BB69-4706-959C-640707EC241D} = {1F3BB18A-89DC-495D-A42A-2263EBB6CB78}
+		{16B0794B-680E-4C3C-9665-600596833AB0} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
+		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
 	EndGlobalSection
 EndGlobal
