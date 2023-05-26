@@ -7,19 +7,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core", "CattoChe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{08436491-51CE-4157-9454-DD4F7DA9313C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GridBoards", "GridBoards", "{B74B5443-EB5D-4AE3-BD91-0A77E714C68F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{B74B5443-EB5D-4AE3-BD91-0A77E714C68F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.GridBoards.Domain", "CattoChess.Features\GridBoards\Domain\CattoChess.Features.GridBoards.Domain.csproj", "{822FD664-B277-43B4-950A-B8380ADF809F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pieces", "Pieces", "{1F3BB18A-89DC-495D-A42A-2263EBB6CB78}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Pieces.Domain", "CattoChess.Features\Pieces\Domain\CattoChess.Features.Pieces.Domain.csproj", "{47ED8981-BB69-4706-959C-640707EC241D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Games.Domain", "CattoChess.Features\Games\Domain\CattoChess.Features.Games.Domain.csproj", "{822FD664-B277-43B4-950A-B8380ADF809F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Host", "CattoChess.Host\CattoChess.Host.csproj", "{3B7B897E-B2C7-4C54-B637-5F217A46212F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.GridBoards.Infrastructure", "CattoChess.Features\GridBoards\Infrastructure\CattoChess.Features.GridBoards.Infrastructure.csproj", "{16B0794B-680E-4C3C-9665-600596833AB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.Games.Service", "CattoChess.Features\Games\Service\CattoChess.Features.Games.Service.csproj", "{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Features.GridBoards.Service", "CattoChess.Features\GridBoards\Service\CattoChess.Features.GridBoards.Service.csproj", "{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Infrastructure", "CattoChess.Infrastructure\CattoChess.Infrastructure.csproj", "{0144AE9F-D2F6-4681-AAE3-38BA191B4C85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "CattoChess.Features\Games\Api\CattoChess.Features.Games.Api.csproj", "{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,29 +36,27 @@ Global
 		{822FD664-B277-43B4-950A-B8380ADF809F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{822FD664-B277-43B4-950A-B8380ADF809F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{822FD664-B277-43B4-950A-B8380ADF809F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47ED8981-BB69-4706-959C-640707EC241D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47ED8981-BB69-4706-959C-640707EC241D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47ED8981-BB69-4706-959C-640707EC241D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47ED8981-BB69-4706-959C-640707EC241D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B7B897E-B2C7-4C54-B637-5F217A46212F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{16B0794B-680E-4C3C-9665-600596833AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16B0794B-680E-4C3C-9665-600596833AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16B0794B-680E-4C3C-9665-600596833AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16B0794B-680E-4C3C-9665-600596833AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0144AE9F-D2F6-4681-AAE3-38BA191B4C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0144AE9F-D2F6-4681-AAE3-38BA191B4C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0144AE9F-D2F6-4681-AAE3-38BA191B4C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0144AE9F-D2F6-4681-AAE3-38BA191B4C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B74B5443-EB5D-4AE3-BD91-0A77E714C68F} = {08436491-51CE-4157-9454-DD4F7DA9313C}
 		{822FD664-B277-43B4-950A-B8380ADF809F} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
-		{1F3BB18A-89DC-495D-A42A-2263EBB6CB78} = {08436491-51CE-4157-9454-DD4F7DA9313C}
-		{47ED8981-BB69-4706-959C-640707EC241D} = {1F3BB18A-89DC-495D-A42A-2263EBB6CB78}
-		{16B0794B-680E-4C3C-9665-600596833AB0} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
 		{E4C4AA0B-BDBE-46F0-8325-497B66122D8D} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
+		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9} = {B74B5443-EB5D-4AE3-BD91-0A77E714C68F}
 	EndGlobalSection
 EndGlobal

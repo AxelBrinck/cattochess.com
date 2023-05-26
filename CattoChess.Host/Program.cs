@@ -1,12 +1,14 @@
-using CattoChess.Features.GridBoards.Service;
+using CattoChess.Features.Games.Service;
+using CattoChess.Infrastructure;
 using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMassTransit(x => {
-    x.AddGridBoardConsumers();
-    x.UsingInMemory();
-});
+builder.Services
+    .AddMassTransit(x => {
+        x.AddGameConsumers();
+        x.UsingInMemory();
+    }).AddMongoDbPersistance(builder.Configuration);
 
 var app = builder.Build();
 

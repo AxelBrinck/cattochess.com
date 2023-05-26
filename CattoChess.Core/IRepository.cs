@@ -2,7 +2,7 @@ namespace CattoChess.Core;
 
 public interface IRepository<TAggregateRoot, TId>
     where TAggregateRoot : AggregateRoot<TId>
-    where TId : notnull
+    where TId : struct
 {
     ValueTask<TAggregateRoot> GetById(TId id);
     ValueTask Insert(TAggregateRoot aggregate);

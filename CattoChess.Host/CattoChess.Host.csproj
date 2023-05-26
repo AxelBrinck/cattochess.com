@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CattoChess.Features\GridBoards\Service\CattoChess.Features.GridBoards.Service.csproj" />
+    <ProjectReference Include="..\CattoChess.Features\Games\Service\CattoChess.Features.Games.Service.csproj" />
+    <ProjectReference Include="..\CattoChess.Infrastructure\CattoChess.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
