@@ -1,3 +1,4 @@
+using CattoChess.Features.Games.Api;
 using CattoChess.Features.Games.Service;
 using CattoChess.Infrastructure;
 using MassTransit;
@@ -12,6 +13,6 @@ builder.Services
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGameEndpoints();
 
 app.Run();

@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CattoChess.Features.Games.Api.Endpoints;
 
 namespace CattoChess.Features.Games.Api;
 
 public static class Extensions
 {
-    public static RouteHandlerBuilder MapGameEndpoints(
-        this IEndpointRouteBuilder endpoints
-    )
+    public static void MapGameEndpoints(this WebApplication app)
     {
-        
+        app.MapMovePiece();
     }
 }

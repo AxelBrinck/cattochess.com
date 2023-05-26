@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CattoChess.Features\Games\Service\CattoChess.Features.Games.Service.csproj" />
     <ProjectReference Include="..\CattoChess.Infrastructure\CattoChess.Infrastructure.csproj" />
+    <ProjectReference Include="..\CattoChess.Features\Games\Api\CattoChess.Features.Games.Api.csproj" />
   </ItemGroup>
 
 </Project>

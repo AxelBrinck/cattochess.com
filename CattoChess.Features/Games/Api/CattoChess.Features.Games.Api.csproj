@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.web">
 
   <ItemGroup>
     <ProjectReference Include="..\Service\CattoChess.Features.Games.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.0.16" />
   </ItemGroup>
 
   <PropertyGroup>

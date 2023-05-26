@@ -23,17 +23,17 @@ public sealed class MongoDbEventSourcedRepository<TAggregateRoot>
         throw new InvalidOperationException();
     }
 
-    public ValueTask<TAggregateRoot> GetById(Guid id, int version)
+    public ValueTask<TAggregateRoot?> GetById(Guid id, int version)
     {
         throw new NotImplementedException();
     }
 
-    public ValueTask<TAggregateRoot> GetById(Guid id, DateTime time)
+    public ValueTask<TAggregateRoot?> GetById(Guid id, DateTime time)
     {
         throw new NotImplementedException();
     }
 
-    public ValueTask<TAggregateRoot> GetById(Guid id)
+    public ValueTask<TAggregateRoot?> GetById(Guid id)
     {
         throw new NotImplementedException();
     }
