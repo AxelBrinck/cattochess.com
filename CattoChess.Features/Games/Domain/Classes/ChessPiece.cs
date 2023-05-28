@@ -1,40 +1,39 @@
 using CattoChess.Features.Games.Domain.Exceptions;
+using CattoChess.Features.Games.Domain.ValueObjects;
 
 namespace CattoChess.Features.Games.Domain.Classes;
 
 public abstract class ChessPiece
 {
-    public string PieceName { get; }
     public Player Owner { get; }
-    public int PositionX { get; private set; }
-    public int PositionY { get; private set; }
+    public Square Square { get; private set; }
     public int TimesMoved { get; private set; }
     public bool GameEndsIfDies { get; }
 
     public ChessPiece(
         Player owner,
-        string pieceName,
-        int positionX,
-        int positionY,
+        Square square,
         bool gameEndsIfDies)
     {
         Owner = owner;
-        PieceName = pieceName;
-        PositionX = positionX;
-        PositionY = positionY;
+        Square = square;
         GameEndsIfDies = gameEndsIfDies;
     }
 
-    protected abstract bool TryMove(int x, int y);
+    protected abstract bool TryMove(Square to, ChessBoard chessBoard);
 
-    public void MoveTo(int x, int y)
+    public void Move(Square to, ChessBoard chessBoard)
     {
-        if (!TryMove(x, y))
-            throw new InvalidTargetPositionException($"Piece {PieceName} " +
-                $" cannot move to {x}, {y}.");
+        if (!TryMove(to, chessBoard))
+            throw new InvalidMoveException(Square, to);
 
-        PositionX = x;
-        PositionY = y;
+        Square = to;
+        
         TimesMoved++;
     }
+
+    internal bool IsMoveLegal(
+        Square to,
+        ChessBoard chessBoard
+    ) => TryMove(to, chessBoard);
 }

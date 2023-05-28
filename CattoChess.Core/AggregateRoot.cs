@@ -1,6 +1,6 @@
 ﻿namespace CattoChess.Core;
 
-public abstract class Aggregate<TId> where TId : notnull
+public abstract class Aggregate<TId> where TId : struct
 {
     public TId Id { get; private set; }
     public DateTime CreationTimestamp { get; }
@@ -18,7 +18,7 @@ public abstract class Aggregate<TId> where TId : notnull
     }
 }
 
-public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : notnull
+public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : struct
 {
     public DateTime? DeletionTimestamp { get; private set; }
 
@@ -26,12 +26,12 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : notnull
 
     public int Version { get; private set; } = 1;
     
-    private Queue<object> uncommitedEvents { get; } = new();
+    private Queue<DomainEvent<TId>> uncommitedEvents { get; } = new();
 
-    public bool TryGettingNextEvent(out object? @event) =>
+    public bool TryGettingNextEvent(out DomainEvent<TId>? @event) =>
         uncommitedEvents.TryDequeue(out @event);
     
-    public object[] DequeueAllEvents()
+    public DomainEvent<TId>[] DequeueAllEvents()
     {
         var events = uncommitedEvents.ToArray();
         uncommitedEvents.Clear();
@@ -44,7 +44,7 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : notnull
     ) : base(id, creationTimestamp) =>
         LastModificationTimestamp = creationTimestamp;
 
-    protected void Enqueue(object @event)
+    protected void Enqueue(DomainEvent<TId> @event)
     {
         if (@event == null)
             throw new CannotEnqueueNullEvents();
@@ -52,7 +52,7 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : notnull
         uncommitedEvents.Enqueue(@event);
     }
 
-    public void EnsureNotDeleted()
+    public void AssertNotDeleted()
     {
         if (DeletionTimestamp != null)
             throw new AggregateIsDeleted();
@@ -61,19 +61,19 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : notnull
     public void MarkAsDeleted(DateTime timestamp) =>
         DeletionTimestamp = timestamp;
 
-    protected void ApplyWrapper(DateTime timestamp, Action action)
+    protected void ApplyWrapper(DomainEvent<TId> @event, Action action)
     {
-        if (LastModificationTimestamp > timestamp)
-            throw new EventNotNewerToBeApplied();
+        AssertNotDeleted();
 
-        LastModificationTimestamp = timestamp;
+        if (LastModificationTimestamp > @event.Timestamp)
+            throw new EventTimestampIsNotNewer();
+
+        LastModificationTimestamp = @event.Timestamp;
         Version++;
         action.Invoke();
     }
 
-    public abstract void Apply(DomainEvent @event);
-
-    public sealed class EventNotNewerToBeApplied : DomainException
+    public sealed class EventTimestampIsNotNewer : DomainException
     {
         
     }

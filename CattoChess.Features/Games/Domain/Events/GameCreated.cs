@@ -2,19 +2,17 @@ using CattoChess.Core;
 
 namespace CattoChess.Features.Games.Domain.Events;
 
-public sealed record GameCreated : DomainEvent
+public sealed record GameCreated : DomainEvent<Guid>
 {
-    public Guid Id { get; }
+    public GameCreated(Game game, ITimeProvider timeProvider) :
+        base(game, timeProvider)
+    {
 
-    public GameCreated(
-        Guid id,
-        ITimeProvider timeProvider
-    ) : base(timeProvider) =>
-        Id = id;
+    }
 
-    public GameCreated(
-        Guid id,
-        DateTime timestamp
-    ) : base(timestamp) =>
-        Id = id;
+    public GameCreated(Guid id, int version, DateTime timestamp) :
+        base(id, version, timestamp)
+    {
+        
+    }
 }

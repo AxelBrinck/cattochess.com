@@ -7,28 +7,43 @@ namespace CattoChess.Features.Games.Domain;
 
 public sealed class Game : AggregateRoot<Guid>
 {
-    private readonly List<ChessPiece> Pieces = new();
+    private readonly ChessBoard chessBoard = ChessBoard.CreateStandardBoard();
     public Player CurrentTurn { get; } = Player.White;
     
-    public Game(GameCreated @event) : base(@event.Id, @event.Timestamp)
+    public Game(GameCreated @event) : 
+        base(@event.AggregateRootId, @event.Timestamp)
     {
-    }
 
+    }
     public static Game Create(GameId GridBoardId, ITimeProvider timeProvider)
     {
-        var @event = new GameCreated(GridBoardId, timeProvider);
-        var GridBoard = new Game(@event);
-        GridBoard.Enqueue(@event);
-        return GridBoard;
+        var @event = new GameCreated(
+            GridBoardId,
+            version: 0,
+            timeProvider.GetCurrentTime());
+
+        var game = new Game(@event);
+        game.Enqueue(@event);
+        return game;
     }
 
-    public override void Apply(DomainEvent @event)
+    public void MovePiece(
+        Square from,
+        Square to,
+        ITimeProvider timeProvider
+    )
     {
-        throw new NotImplementedException();
+        chessBoard.AssertPieceAbilityToMove(from, to);
+        
+        var @event = new PieceMoved(game: this, timeProvider, from, to);
+        Enqueue(@event);
+        Apply(@event);
     }
-
-    public void Move(int fromX, int fromY, int toX, int toY)
-    {
-        throw new NotImplementedException();
-    }
+    public void Apply(PieceMoved @event) => ApplyWrapper(
+        @event,
+        () => chessBoard.MovePiece(
+            @event.From,
+            @event.To
+        )
+    );
 }

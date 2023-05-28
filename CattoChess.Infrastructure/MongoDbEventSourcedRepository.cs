@@ -8,14 +8,14 @@ public sealed class MongoDbEventSourcedRepository<TAggregateRoot>
     : IEventSourcedRepository<TAggregateRoot, Guid>
         where TAggregateRoot : AggregateRoot<Guid>
 {
-    private readonly IMongoCollection<Event> collection;
+    private readonly IMongoCollection<DomainEvent<Guid>> collection;
 
     public MongoDbEventSourcedRepository(IOptions<MongoDbSettings> settings)
     {
         var database = new MongoClient(settings.Value.ConnectionString)
             .GetDatabase(settings.Value.DatabaseName);
         
-        collection = database.GetCollection<Event>("EventStore");
+        collection = database.GetCollection<DomainEvent<Guid>>("EventStore");
     }
     
     public ValueTask DeleteById(Guid id)
@@ -41,11 +41,7 @@ public sealed class MongoDbEventSourcedRepository<TAggregateRoot>
     public ValueTask Insert(TAggregateRoot aggregate)
     {
         foreach(var @event in aggregate.DequeueAllEvents())
-            collection.InsertOne(new Event {
-                StreamId = aggregate.Id,
-                Payload = System.Text.Json.JsonSerializer.Serialize(@event),
-                Timestamp = ((DomainEvent) @event).Timestamp
-            });
+            collection.InsertOne(@event);
 
         return ValueTask.CompletedTask;
     }

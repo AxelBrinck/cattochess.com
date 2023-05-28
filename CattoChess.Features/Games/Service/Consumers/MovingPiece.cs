@@ -24,11 +24,10 @@ public sealed class MovingPiece : IConsumer<MovePiece>
         var game = await repository.GetById(context.Message.GameId) ??
             throw new Exception("Game not found.");
         
-        game.Move(
-            context.Message.FromX,
-            context.Message.FromY,
-            context.Message.ToX,
-            context.Message.ToY
+        game.MovePiece(
+            context.Message.From,
+            context.Message.To,
+            timeProvider
         );
     }
 }

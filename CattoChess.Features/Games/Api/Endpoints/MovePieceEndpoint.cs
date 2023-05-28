@@ -1,4 +1,5 @@
 using CattoChess.Core;
+using CattoChess.Features.Games.Domain.ValueObjects;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;
 
@@ -11,13 +12,11 @@ internal static class MovePieceEndpoint
         app.MapPost("api/move", async (
             IRequestClient<MovePiece> request,
             Guid gameId,
-            int fromX,
-            int fromY,
-            int toX,
-            int toY
+            Square from,
+            Square to
         ) => {
             var result = await request.GetResponse<CommandResult>(
-                new MovePiece(gameId, fromX, fromY, toX, toY)
+                new MovePiece(gameId, from, to)
             );
 
             if (!result.Message.Success)
