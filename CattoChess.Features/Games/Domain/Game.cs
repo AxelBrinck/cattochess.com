@@ -27,6 +27,16 @@ public sealed class Game : AggregateRoot<Guid>
         return game;
     }
 
+    public override void Apply(DomainEvent<Guid> @event)
+    {
+        switch (@event)
+        {
+        case PieceMoved e:
+            ApplyMovePiece(e);
+            break;
+        }
+    }
+
     public void MovePiece(
         Square from,
         Square to,
@@ -39,7 +49,7 @@ public sealed class Game : AggregateRoot<Guid>
         Enqueue(@event);
         Apply(@event);
     }
-    public void Apply(PieceMoved @event) => ApplyWrapper(
+    private void ApplyMovePiece(PieceMoved @event) => ApplyWrapper(
         @event,
         () => chessBoard.MovePiece(
             @event.From,

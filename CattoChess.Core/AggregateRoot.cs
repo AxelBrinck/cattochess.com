@@ -1,25 +1,9 @@
 ﻿namespace CattoChess.Core;
 
-public abstract class Aggregate<TId> where TId : struct
+public abstract class AggregateRoot<TId> where TId : struct
 {
     public TId Id { get; private set; }
     public DateTime CreationTimestamp { get; }
-
-    protected void ChangedId(TId newId) =>
-        Id = newId;
-
-    protected Aggregate(
-        TId id,
-        DateTime creationTimestamp
-    )
-    {
-        Id = id;
-        CreationTimestamp = creationTimestamp;
-    }
-}
-
-public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : struct
-{
     public DateTime? DeletionTimestamp { get; private set; }
 
     public DateTime LastModificationTimestamp { get; private set; }
@@ -38,11 +22,11 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : struct
         return events;
     }
 
-    protected AggregateRoot(
-        TId id,
-        DateTime creationTimestamp
-    ) : base(id, creationTimestamp) =>
-        LastModificationTimestamp = creationTimestamp;
+    protected AggregateRoot(TId id,  DateTime creationTimestamp)
+    {
+        Id = id;
+        CreationTimestamp = creationTimestamp;
+    }
 
     protected void Enqueue(DomainEvent<TId> @event)
     {
@@ -57,6 +41,8 @@ public abstract class AggregateRoot<TId> : Aggregate<TId> where TId : struct
         if (DeletionTimestamp != null)
             throw new AggregateIsDeleted();
     }
+
+    public abstract void Apply(DomainEvent<Guid> @event);
 
     public void MarkAsDeleted(DateTime timestamp) =>
         DeletionTimestamp = timestamp;

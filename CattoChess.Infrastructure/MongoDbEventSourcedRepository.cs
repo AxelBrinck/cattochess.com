@@ -10,13 +10,10 @@ public sealed class MongoDbEventSourcedRepository<TAggregateRoot>
 {
     private readonly IMongoCollection<DomainEvent<Guid>> collection;
 
-    public MongoDbEventSourcedRepository(IOptions<MongoDbSettings> settings)
-    {
-        var database = new MongoClient(settings.Value.ConnectionString)
-            .GetDatabase(settings.Value.DatabaseName);
-        
-        collection = database.GetCollection<DomainEvent<Guid>>("EventStore");
-    }
+    public MongoDbEventSourcedRepository(IOptions<MongoDbSettings> settings) =>
+        collection = new MongoClient(settings.Value.ConnectionString)
+            .GetDatabase(settings.Value.DatabaseName)
+            .GetCollection<DomainEvent<Guid>>("EventStore");
     
     public ValueTask DeleteById(Guid id)
     {
