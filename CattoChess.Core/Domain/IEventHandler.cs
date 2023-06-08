@@ -4,7 +4,7 @@ public interface IEventHandler<TId, TEntity>
     where TId : struct
     where TEntity : class
 {
-    object Event { get; } 
+    object Event { get; }
 }
 
 public interface IEventHandler<TId, TEntity, TEvent> : IEventHandler<TId, TEntity>

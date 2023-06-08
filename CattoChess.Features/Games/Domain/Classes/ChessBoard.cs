@@ -84,6 +84,7 @@ public sealed class ChessBoard
     internal void MovePiece(Square from, Square to)
     {
         AssertPieceAbilityToMove(from, to);
+        
         pieces.First(piece =>
             piece.Square == from
         ).Move(to, chessBoard: this);
