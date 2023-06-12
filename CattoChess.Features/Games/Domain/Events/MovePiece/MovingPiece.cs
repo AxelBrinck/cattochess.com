@@ -1,8 +1,9 @@
 using CattoChess.Core.Domain;
+using CattoChess.Core.Domain.Events;
 
-namespace CattoChess.Features.Games.Domain.Events.MovingPiece;
+namespace CattoChess.Features.Games.Domain.Events.MovePiece;
 
-public sealed class MovingPiece : ICommandHandler<Guid, Guid, GameState, PieceMoved>
+public sealed class MovingPiece : IEventHandler<Guid, Guid, GameState, PieceMoved>
 {
     public IEnumerable<Event<Guid>> AssertValid(
         PieceMoved @event,

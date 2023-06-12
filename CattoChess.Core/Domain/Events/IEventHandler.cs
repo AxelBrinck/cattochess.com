@@ -1,6 +1,6 @@
-namespace CattoChess.Core.Domain;
+namespace CattoChess.Core.Domain.Events;
 
-public interface ICommandHandler<TAggregateId, TEventId, TState, TEvent>
+public interface IEventHandler<TAggregateId, TEventId, TState, TEvent>
     where TAggregateId : struct
     where TEventId : struct
     where TState : class

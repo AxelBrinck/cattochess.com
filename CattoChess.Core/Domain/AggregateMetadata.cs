@@ -1,3 +1,5 @@
+using CattoChess.Core.Domain.Events;
+
 namespace CattoChess.Core.Domain;
 
 public sealed class AggregateMetadata<TAggregateId, TEventId> : IReadOnlytAggregateMetadata<TAggregateId>

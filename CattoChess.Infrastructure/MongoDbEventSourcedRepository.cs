@@ -4,9 +4,10 @@ using MongoDB.Driver;
 
 namespace CattoChess.Infrastructure;
 
+/*
 public sealed class MongoDbEventSourcedRepository<TAggregateRoot>
-    : IEventSourcedRepository<TAggregateRoot, Guid>
-        where TAggregateRoot : AggregateRoot<Guid>
+    : IAggregateRepository<Guid, Guid>
+        where TAggregateRoot : Aggregate<Guid, Guid>
 {
     private readonly IMongoCollection<DomainEvent<Guid>> collection;
 
@@ -48,3 +49,4 @@ public sealed class MongoDbEventSourcedRepository<TAggregateRoot>
         throw new NotImplementedException();
     }
 }
+*/

@@ -1,5 +1,6 @@
 using CattoChess.Core;
 using CattoChess.Core.Domain;
+using CattoChess.Core.Domain.DataProviders;
 using CattoChess.Features.Games.Domain;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;
@@ -8,11 +9,11 @@ namespace CattoChess.Features.Games.Service.Consumers;
 
 public sealed class CreatingGame : IConsumer<CreateGame>
 {
-    private readonly IRepository<Guid, Game> repository;
+    private readonly IAggregateRepository<Guid, Guid, GameState> repository;
     private readonly ITimeProvider timeProvider;
 
     public CreatingGame(
-        IRepository<Guid, Game> repository,
+        IAggregateRepository<Guid, Guid, GameState> repository,
         ITimeProvider timeProvider
     )
     {
@@ -22,8 +23,6 @@ public sealed class CreatingGame : IConsumer<CreateGame>
 
     public async Task Consume(ConsumeContext<CreateGame> context)
     {
-        await repository.Insert(
-            Game
-        );
+        // TODO: Finish this: await repository.Insert();
     }
 }

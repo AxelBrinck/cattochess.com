@@ -1,4 +1,5 @@
-using CattoChess.Core.Domain;
+using CattoChess.Core.Domain.DataProviders;
+using CattoChess.Core.Domain.Events;
 
 namespace CattoChess.Features.Games.Domain.Events;
 

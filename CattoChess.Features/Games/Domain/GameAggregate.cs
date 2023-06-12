@@ -1,6 +1,8 @@
 using CattoChess.Core.Domain;
+using CattoChess.Core.Domain.DataProviders;
+using CattoChess.Core.Domain.Events;
 using CattoChess.Features.Games.Domain.Events;
-using CattoChess.Features.Games.Domain.Events.MovingPiece;
+using CattoChess.Features.Games.Domain.Events.MovePiece;
 using CattoChess.Features.Games.Domain.ValueObjects;
 
 namespace CattoChess.Features.Games.Domain;
@@ -26,15 +28,13 @@ public sealed class GameAggregate : Aggregate<Guid, Guid, GameState>
         
         var aggregate = new GameAggregate(@event);
 
-        // TODO: Enqueue on creation?
-
         return aggregate;
     }
 
     protected override void OnRegisterEventHandlers(
-        ICommandHandlerRegistrator<Guid, Guid, GameState> registrator
+        IEventHandlerRegistrator<Guid, Guid, GameState> registrator
     )
     {
-        registrator.RegisterCommandHandler<MovePiece, MovingPiece, PieceMoved>();
+        registrator.RegisterCommandHandler<MovingPiece, PieceMoved>();
     }
 }

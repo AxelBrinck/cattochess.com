@@ -1,4 +1,6 @@
-namespace CattoChess.Core.Domain;
+using CattoChess.Core.Domain.DataProviders;
+
+namespace CattoChess.Core.Domain.Events;
 
 public abstract record Event<TEventId> where TEventId : struct
 {

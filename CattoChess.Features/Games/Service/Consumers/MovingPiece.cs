@@ -1,4 +1,6 @@
 using CattoChess.Core;
+using CattoChess.Core.Domain;
+using CattoChess.Core.Domain.DataProviders;
 using CattoChess.Features.Games.Domain;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;
@@ -7,11 +9,11 @@ namespace CattoChess.Features.Games.Service.Consumers;
 
 public sealed class MovingPiece : IConsumer<MovePiece>
 {
-    private readonly IRepository<Game, Guid> repository;
+    private readonly IAggregateRepository<Guid, Guid, GameState> repository;
     private readonly ITimeProvider timeProvider;
 
     public MovingPiece(
-        IRepository<Game, Guid> repository,
+        IAggregateRepository<Guid, Guid, GameState> repository,
         ITimeProvider timeProvider
     )
     {
@@ -21,13 +23,15 @@ public sealed class MovingPiece : IConsumer<MovePiece>
     
     public async Task Consume(ConsumeContext<MovePiece> context)
     {
-        var game = await repository.GetById(context.Message.GameId) ??
+        var game = repository.GetById(context.Message.GameId) ??
             throw new Exception("Game not found.");
         
+        /*
         game.MovePiece(
             context.Message.From,
             context.Message.To,
             timeProvider
         );
+        */
     }
 }

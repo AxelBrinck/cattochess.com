@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain;
+namespace CattoChess.Core.Domain.DataProviders;
 
 public sealed class UtcTimeProvider : ITimeProvider
 {
