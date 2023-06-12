@@ -1,6 +1,7 @@
 namespace CattoChess.Core.Domain;
 
-public interface ICreationEvent<TId> : IEvent where TId : struct
+public interface ICreationEvent<TId> : IEvent<TId> where TId : struct
 {
-    TId Id { get; }
+    TId AggregateId { get; }
+    string FullyQualifiedAggregateClassName { get; }
 }
