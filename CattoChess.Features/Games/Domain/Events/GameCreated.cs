@@ -1,18 +1,14 @@
-using CattoChess.Core;
+using CattoChess.Core.Domain;
 
 namespace CattoChess.Features.Games.Domain.Events;
 
-public sealed record GameCreated : DomainEvent<Guid>
+public sealed record GameCreated : ICreationEvent<Guid>
 {
-    public GameCreated(Game game, ITimeProvider timeProvider) :
-        base(game, timeProvider)
-    {
+    public Guid AggregateId => throw new NotImplementedException();
 
-    }
+    public string FullyQualifiedAggregateClassName => throw new NotImplementedException();
 
-    public GameCreated(Guid id, int version, DateTime timestamp) :
-        base(id, version, timestamp)
-    {
-        
-    }
+    public Guid Id => throw new NotImplementedException();
+
+    public DateTime Timestamp => throw new NotImplementedException();
 }
