@@ -1,17 +1,17 @@
 namespace CattoChess.Core.Domain;
 
-public abstract record Event<TId> : IEvent<TId> where TId : struct
+public abstract record Event<TEventId> where TEventId : struct
 {
-    public TId Id { get; }
+    public TEventId Id { get; }
     public DateTime Timestamp { get; }
 
-    public Event(IIdProvider<TId> idProvider, ITimeProvider timeProvider)
+    public Event(IIdProvider<TEventId> idProvider, ITimeProvider timeProvider)
     {
         Id = idProvider.NewId();
         Timestamp = timeProvider.GetCurrentTime();
     }
 
-    public Event(TId id, DateTime timestamp)
+    public Event(TEventId id, DateTime timestamp)
     {
         Id = id;
         Timestamp = timestamp;

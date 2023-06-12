@@ -1,9 +1,10 @@
 namespace CattoChess.Core.Domain;
 
-public interface IRepository<TId, TEntity>
-    where TId : struct
-    where TEntity : class, new()
+public interface IRepository<TAggregateId, TEventId, TState>
+    where TAggregateId : struct
+    where TEventId : struct
+    where TState : class, new()
 {
-    void Insert(Aggregate<TId, TEntity> aggregate);
-    void Update(Aggregate<TId, TEntity> aggregate);
+    void Insert(Aggregate<TAggregateId, TEventId, TState> aggregate);
+    void Update(Aggregate<TAggregateId, TEventId, TState> aggregate);
 }

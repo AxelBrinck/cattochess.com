@@ -5,5 +5,5 @@ public interface IReadOnlytAggregateMetadata<TId>  where TId : struct
     TId AggregateId { get; }
     DateTime CreationTimestamp { get; }
     DateTime? DeletionTimestamp { get; }
-    DateTime? LastModificationTimestamp { get; }
+    DateTime LastEventTimestamp { get; }
 }

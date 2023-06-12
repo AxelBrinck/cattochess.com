@@ -1,21 +1,24 @@
 namespace CattoChess.Core.Domain;
 
-public abstract class Aggregate<TId, TEntity>
-    where TEntity : class, new()
-    where TId : struct
+public abstract class Aggregate<TAggregateId, TEventId, TState>
+    where TEventId : struct
+    where TAggregateId : struct
+    where TState : class, new()
 {
-    public TEntity Entity { get; } = new();
+    protected TState State { get; } = new();
 
-    private readonly AggregateMetadata<TId> metadata;
-    private readonly EventHandlerRouter<TId, TEntity> eventHandlerManager = new();
-    private readonly Queue<(IEvent Event, int ExpectedVersion)> uncommitedEvents = new();
+    private readonly AggregateMetadata<TAggregateId, TEventId> metadata;
+    private readonly CommandHandlerRouter<TAggregateId, TEventId, TState> eventHandlerRouter = new();
+    private readonly Queue<(Event<TEventId> Event, int ExpectedVersion)> uncommitedEvents = new();
 
-    public Aggregate(ICreationEvent<TId> creationEvent)
+    public Aggregate(CreationEvent<TAggregateId, TEventId> creationEvent)
     {
-        metadata = new AggregateMetadata<TId>(creationEvent);
+        metadata = new AggregateMetadata<TAggregateId, TEventId>(creationEvent);
 
-        OnRegisterEventHandlers(eventHandlerManager);
+        OnRegisterEventHandlers(eventHandlerRouter);
     }
 
-    protected abstract void OnRegisterEventHandlers(IEventHandlerRegistrator<TId, TEntity> registrator);
+    protected abstract void OnRegisterEventHandlers(
+        ICommandHandlerRegistrator<TAggregateId, TEventId, TState> registrator
+    );
 }
