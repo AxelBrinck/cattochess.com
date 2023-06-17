@@ -6,15 +6,15 @@ public interface IEventHandler<TAggregateId, TEventId, TState, TEvent>
     where TState : class
     where TEvent : Event<TEventId>
 {
-    IEnumerable<Event<TEventId>> AssertValid(
+    void PassBusinessLogic(
         TEvent @event,
-        TState state,
-        IReadOnlytAggregateMetadata<TAggregateId> aggregateMetadata
+        TState stateClone,
+        IReadOnlytAggregateMetadata<TAggregateId> metadata
     );
 
     IEnumerable<Event<TEventId>> Apply(
         TEvent @event,
         TState state,
-        IReadOnlytAggregateMetadata<TAggregateId> aggregateMetadata
+        IReadOnlytAggregateMetadata<TAggregateId> metadata
     );
 }

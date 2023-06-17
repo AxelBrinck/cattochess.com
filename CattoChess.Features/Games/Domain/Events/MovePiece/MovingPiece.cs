@@ -5,9 +5,9 @@ namespace CattoChess.Features.Games.Domain.Events.MovePiece;
 
 public sealed class MovingPiece : IEventHandler<Guid, Guid, GameState, PieceMoved>
 {
-    public IEnumerable<Event<Guid>> AssertValid(
+    public void PassBusinessLogic(
         PieceMoved @event,
-        GameState entity,
+        GameState stateClone,
         IReadOnlytAggregateMetadata<Guid> aggregateMetadata
     )
     {
@@ -16,7 +16,7 @@ public sealed class MovingPiece : IEventHandler<Guid, Guid, GameState, PieceMove
 
     public IEnumerable<Event<Guid>> Apply(
         PieceMoved @event,
-        GameState entity,
+        GameState state,
         IReadOnlytAggregateMetadata<Guid> aggregateMetadata
     )
     {

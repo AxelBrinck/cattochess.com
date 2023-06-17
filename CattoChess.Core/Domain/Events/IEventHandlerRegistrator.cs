@@ -5,7 +5,7 @@ public interface IEventHandlerRegistrator<TAggregateId, TEventId, TState>
     where TEventId : struct
     where TState : class
 {
-    void RegisterCommandHandler<TEventHandler, TEvent>()
+    void RegisterEventHandler<TEventHandler, TEvent>()
         where TEventHandler : IEventHandler<TAggregateId, TEventId, TState, TEvent>, new()
         where TEvent : Event<TEventId>;
 }
