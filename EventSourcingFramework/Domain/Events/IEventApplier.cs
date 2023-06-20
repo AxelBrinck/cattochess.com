@@ -6,13 +6,7 @@ public interface IEventApplier<TAggregateId, TEventId, TState, TEvent>
     where TState : class
     where TEvent : Event<TEventId>
 {
-    void AssertBusinessLogicRequirementsMet(
-        TEvent @event,
-        TState stateClone,
-        IReadOnlytAggregateMetadata<TAggregateId> metadata
-    );
-
-    void ApplyEvent(
+    void Handle(
         TEvent @event,
         TState state,
         IReadOnlytAggregateMetadata<TAggregateId> metadata

@@ -1,8 +1,8 @@
 namespace EventSourcingFramework.Domain;
 
-public interface IReadOnlytAggregateMetadata<TId>  where TId : struct 
+public interface IReadOnlytAggregateMetadata<TAggregateId>  where TAggregateId : struct 
 {
-    TId AggregateId { get; }
+    TAggregateId AggregateId { get; }
     DateTime CreationTimestamp { get; }
     DateTime? DeletionTimestamp { get; }
     DateTime LastEventTimestamp { get; }

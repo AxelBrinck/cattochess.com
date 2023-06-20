@@ -12,7 +12,7 @@ public sealed class MovingPiece : IEventApplier<Guid, Guid, GameState, PieceMove
     ) =>
         stateClone.Board.AssertPieceAbilityToMove(@event.From, @event.To);
 
-    public void ApplyEvent(
+    public void Handle(
         PieceMoved @event,
         GameState state,
         IReadOnlytAggregateMetadata<Guid> metadata

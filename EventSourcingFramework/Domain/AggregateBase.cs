@@ -1,6 +1,4 @@
-using System.Text.Json;
 using EventSourcingFramework.Domain.Events;
-using EventSourcingFramework.Domain.Exceptions;
 
 namespace EventSourcingFramework.Domain;
 
@@ -35,6 +33,7 @@ public abstract class AggregateBase<TAggregateId, TEventId, TState>
             yield return @event;
     }
 
+    /*
     public bool CanEventBeApplied<TEvent>(TEvent @event, out Exception? reason)
         where TEvent : Event<TEventId>
     {
@@ -63,15 +62,16 @@ public abstract class AggregateBase<TAggregateId, TEventId, TState>
         var eventHandler = eventHandlerRouter.GetEventHandlerInstance<TEvent>();
         
         eventHandler.AssertBusinessLogicRequirementsMet(@event, State, metadata);
-        eventHandler.ApplyEvent(@event, State, metadata);
+        eventHandler.Handle(@event, State, metadata);
 
         uncommittedEvents.Append(@event);
     }
+    */
 
     public void ApplyDirectly<TEvent>(TEvent @event) where TEvent : Event<TEventId>
     {
         var eventHandler = eventHandlerRouter.GetEventHandlerInstance<TEvent>();
 
-        eventHandler.ApplyEvent(@event, State, metadata);
+        eventHandler.Handle(@event, State, metadata);
     }
 }
