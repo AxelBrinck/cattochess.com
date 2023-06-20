@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain;
+namespace EventSourcingFramework.Domain;
 
 public interface IAggregateRepository<TAggregateId, TEventId, TState>
     where TAggregateId : struct

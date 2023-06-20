@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain.DataProviders;
+namespace EventSourcingFramework.Domain.DataProviders;
 
 public sealed class GuidIdProvider : IIdProvider<Guid>
 {

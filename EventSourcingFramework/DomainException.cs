@@ -1,4 +1,4 @@
-namespace CattoChess.Core;
+namespace EventSourcingFramework;
 
 public abstract class DomainException : Exception
 {

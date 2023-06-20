@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain;
+namespace EventSourcingFramework.Domain;
 
 public interface IReadOnlytAggregateMetadata<TId>  where TId : struct 
 {

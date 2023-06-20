@@ -1,6 +1,6 @@
-using CattoChess.Core.Domain.Events;
+using EventSourcingFramework.Domain.Events;
 
-namespace CattoChess.Core.Domain;
+namespace EventSourcingFramework.Domain;
 
 public sealed class AggregateMetadata<TAggregateId, TEventId> : IReadOnlytAggregateMetadata<TAggregateId>
     where TAggregateId : struct

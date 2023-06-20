@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain.Exceptions;
+namespace EventSourcingFramework.Domain.Exceptions;
 
 public sealed class UnableToCloneAggregateStateException : DomainException
 {

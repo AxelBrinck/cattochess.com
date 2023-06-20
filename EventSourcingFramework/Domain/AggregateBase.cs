@@ -1,8 +1,8 @@
 using System.Text.Json;
-using CattoChess.Core.Domain.Events;
-using CattoChess.Core.Domain.Exceptions;
+using EventSourcingFramework.Domain.Events;
+using EventSourcingFramework.Domain.Exceptions;
 
-namespace CattoChess.Core.Domain;
+namespace EventSourcingFramework.Domain;
 
 public abstract class AggregateBase<TAggregateId, TEventId, TState>
     where TEventId : struct

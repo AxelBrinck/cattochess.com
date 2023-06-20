@@ -1,4 +1,4 @@
-using CattoChess.Core.Domain.DataProviders;
+using EventSourcingFramework.Domain.DataProviders;
 using CattoChess.Features.Games.Domain.Classes;
 using CattoChess.Features.Games.Domain.Events;
 using CattoChess.Features.Games.Domain.ValueObjects;

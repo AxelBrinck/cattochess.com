@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CattoChess.Core\CattoChess.Core.csproj" />
+    <ProjectReference Include="..\..\..\EventSourcingFramework\EventSourcingFramework.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

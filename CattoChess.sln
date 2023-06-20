@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core", "CattoChess.Core\CattoChess.Core.csproj", "{79674D9F-51B1-41D6-9712-C05E7AB377C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcingFramework", "EventSourcingFramework\EventSourcingFramework.csproj", "{79674D9F-51B1-41D6-9712-C05E7AB377C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{08436491-51CE-4157-9454-DD4F7DA9313C}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Infrastructure", "CattoChess.Infrastructure\CattoChess.Infrastructure.csproj", "{0144AE9F-D2F6-4681-AAE3-38BA191B4C85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "CattoChess.Features\Games\Api\CattoChess.Features.Games.Api.csproj", "{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattoChess.Core.Tests", "CattoChess.Core.Tests\CattoChess.Core.Tests.csproj", "{DA15125E-C2C7-4FD4-B3C2-B857F8BC4190}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,10 +52,6 @@ Global
 		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E126FA92-2DC6-40BD-B6D2-5B8DB836B8D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA15125E-C2C7-4FD4-B3C2-B857F8BC4190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA15125E-C2C7-4FD4-B3C2-B857F8BC4190}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA15125E-C2C7-4FD4-B3C2-B857F8BC4190}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA15125E-C2C7-4FD4-B3C2-B857F8BC4190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B74B5443-EB5D-4AE3-BD91-0A77E714C68F} = {08436491-51CE-4157-9454-DD4F7DA9313C}

@@ -1,4 +1,4 @@
-using CattoChess.Core;
+using EventSourcingFramework;
 using CattoChess.Features.Games.Domain.ValueObjects;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;

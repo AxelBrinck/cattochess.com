@@ -1,7 +1,7 @@
-using CattoChess.Core.Domain.Exceptions;
-using CattoChess.Core.Exceptions;
+using EventSourcingFramework.Domain.Exceptions;
+using EventSourcingFramework.Exceptions;
 
-namespace CattoChess.Core.Domain.Events;
+namespace EventSourcingFramework.Domain.Events;
 
 internal sealed class CommandHandlerRouter<TAggregateId, TEventId, TState> : 
     IEventHandlerRegistrator<TAggregateId, TEventId, TState>

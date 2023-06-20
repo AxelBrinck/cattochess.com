@@ -1,6 +1,6 @@
-using CattoChess.Core.Domain.DataProviders;
+using EventSourcingFramework.Domain.DataProviders;
 
-namespace CattoChess.Core.Domain.Events;
+namespace EventSourcingFramework.Domain.Events;
 
 public abstract record CreationEvent<TAggregateId, TEventId> : Event<TEventId>
     where TAggregateId : struct

@@ -1,5 +1,5 @@
-using CattoChess.Core.Domain;
-using CattoChess.Core.Domain.Events;
+using EventSourcingFramework.Domain;
+using EventSourcingFramework.Domain.Events;
 
 namespace CattoChess.Features.Games.Domain.Events.MovePiece;
 

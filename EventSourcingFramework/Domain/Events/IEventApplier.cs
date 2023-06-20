@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain.Events;
+namespace EventSourcingFramework.Domain.Events;
 
 public interface IEventApplier<TAggregateId, TEventId, TState, TEvent>
     where TAggregateId : struct

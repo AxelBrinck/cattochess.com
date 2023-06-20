@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Exceptions;
+namespace EventSourcingFramework.Exceptions;
 
 public class EmptyGuidException : DomainException
 {

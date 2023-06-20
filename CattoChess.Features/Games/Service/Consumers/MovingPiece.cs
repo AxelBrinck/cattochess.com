@@ -1,6 +1,6 @@
-using CattoChess.Core;
-using CattoChess.Core.Domain;
-using CattoChess.Core.Domain.DataProviders;
+using EventSourcingFramework;
+using EventSourcingFramework.Domain;
+using EventSourcingFramework.Domain.DataProviders;
 using CattoChess.Features.Games.Domain;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;

@@ -1,4 +1,4 @@
-namespace CattoChess.Core.Domain.DataProviders;
+namespace EventSourcingFramework.Domain.DataProviders;
 
 public interface ITimeProvider
 {
