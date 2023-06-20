@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Domain.DataProviders;
+namespace EventSourcingFramework.DataProviders.Time;
 
 public sealed class UtcTimeProvider : ITimeProvider
 {

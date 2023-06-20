@@ -1,6 +1,7 @@
-using EventSourcingFramework.Domain.DataProviders;
 using EventSourcingFramework.Domain.Events;
 using CattoChess.Features.Games.Domain.ValueObjects;
+using EventSourcingFramework.DataProviders.Id;
+using EventSourcingFramework.DataProviders.Time;
 
 namespace CattoChess.Features.Games.Domain.Events.MovePiece;
 

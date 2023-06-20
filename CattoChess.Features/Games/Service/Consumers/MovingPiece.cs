@@ -1,9 +1,9 @@
 using EventSourcingFramework;
 using EventSourcingFramework.Domain;
-using EventSourcingFramework.Domain.DataProviders;
 using CattoChess.Features.Games.Domain;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;
+using EventSourcingFramework.DataProviders.Time;
 
 namespace CattoChess.Features.Games.Service.Consumers;
 

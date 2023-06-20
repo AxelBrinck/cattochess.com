@@ -1,7 +1,8 @@
-using EventSourcingFramework.Domain.DataProviders;
 using CattoChess.Features.Games.Domain.Classes;
 using CattoChess.Features.Games.Domain.Events;
 using CattoChess.Features.Games.Domain.ValueObjects;
+using EventSourcingFramework.DataProviders.Id;
+using EventSourcingFramework.DataProviders.Time;
 
 namespace CattoChess.Features.Games.Domain.Factories;
 

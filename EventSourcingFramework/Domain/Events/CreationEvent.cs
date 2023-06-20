@@ -1,4 +1,5 @@
-using EventSourcingFramework.Domain.DataProviders;
+using EventSourcingFramework.DataProviders.Id;
+using EventSourcingFramework.DataProviders.Time;
 
 namespace EventSourcingFramework.Domain.Events;
 
