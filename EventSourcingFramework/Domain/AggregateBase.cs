@@ -12,7 +12,7 @@ public abstract class AggregateBase<TAggregateId, TEventId, TState>
     protected TState State { get; } = new();
 
     private readonly AggregateMetadata<TAggregateId, TEventId> metadata;
-    private readonly CommandHandlerRouter<TAggregateId, TEventId, TState> eventHandlerRouter = new();
+    private readonly EventHandlerRouter<TAggregateId, TEventId, TState> eventHandlerRouter = new();
     private readonly Queue<object> uncommittedEvents = new();
 
     public AggregateBase(CreationEvent<TAggregateId, TEventId> creationEvent, bool enqueueCreationEvent)

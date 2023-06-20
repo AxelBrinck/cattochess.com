@@ -3,7 +3,7 @@ using EventSourcingFramework.Exceptions;
 
 namespace EventSourcingFramework.Domain.Events;
 
-internal sealed class CommandHandlerRouter<TAggregateId, TEventId, TState> : 
+internal sealed class EventHandlerRouter<TAggregateId, TEventId, TState> : 
     IEventHandlerRegistrator<TAggregateId, TEventId, TState>
     where TAggregateId : struct
     where TEventId : struct
