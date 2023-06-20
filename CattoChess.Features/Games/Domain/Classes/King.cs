@@ -4,8 +4,8 @@ namespace CattoChess.Features.Games.Domain.Classes;
 
 public sealed class King : ChessPiece
 {
-    public King(Player owner, Square square) :
-        base(owner, square, gameEndsIfDies: true)
+    public King(Player owner, Square square, Orientation orientation) :
+        base(owner, square, orientation, gameEndsIfDies: true)
     {
 
     }

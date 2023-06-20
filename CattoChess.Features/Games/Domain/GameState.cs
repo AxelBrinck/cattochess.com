@@ -4,5 +4,5 @@ namespace CattoChess.Features.Games.Domain;
 
 public sealed class GameState
 {
-    public ChessBoard? Board { get; set; }
+    public ChessBoard Board { get; set; } = default!;
 }

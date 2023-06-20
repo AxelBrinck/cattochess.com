@@ -4,8 +4,8 @@ namespace CattoChess.Features.Games.Domain.Classes;
 
 public sealed class Rook : ChessPiece
 {
-    public Rook(Player owner, Square square) :
-        base(owner, square, gameEndsIfDies: false)
+    public Rook(Player owner, Square square, Orientation orientation) :
+        base(owner, square, orientation, gameEndsIfDies: false)
     {
 
     }

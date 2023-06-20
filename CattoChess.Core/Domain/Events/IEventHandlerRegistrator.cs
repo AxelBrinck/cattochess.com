@@ -6,6 +6,6 @@ public interface IEventHandlerRegistrator<TAggregateId, TEventId, TState>
     where TState : class
 {
     void RegisterEventHandler<TEventHandler, TEvent>()
-        where TEventHandler : IEventHandler<TAggregateId, TEventId, TState, TEvent>, new()
+        where TEventHandler : IEventApplier<TAggregateId, TEventId, TState, TEvent>, new()
         where TEvent : Event<TEventId>;
 }

@@ -1,18 +1,18 @@
 namespace CattoChess.Core.Domain.Events;
 
-public interface IEventHandler<TAggregateId, TEventId, TState, TEvent>
+public interface IEventApplier<TAggregateId, TEventId, TState, TEvent>
     where TAggregateId : struct
     where TEventId : struct
     where TState : class
     where TEvent : Event<TEventId>
 {
-    void PassBusinessLogic(
+    void AssertBusinessLogicRequirementsMet(
         TEvent @event,
         TState stateClone,
         IReadOnlytAggregateMetadata<TAggregateId> metadata
     );
 
-    IEnumerable<Event<TEventId>> Apply(
+    void ApplyEvent(
         TEvent @event,
         TState state,
         IReadOnlytAggregateMetadata<TAggregateId> metadata

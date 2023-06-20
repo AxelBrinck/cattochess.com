@@ -1,8 +1,10 @@
+using System.Text.Json;
 using CattoChess.Core.Domain.Events;
+using CattoChess.Core.Domain.Exceptions;
 
 namespace CattoChess.Core.Domain;
 
-public abstract class Aggregate<TAggregateId, TEventId, TState>
+public abstract class AggregateBase<TAggregateId, TEventId, TState>
     where TEventId : struct
     where TAggregateId : struct
     where TState : class, new()
@@ -13,13 +15,13 @@ public abstract class Aggregate<TAggregateId, TEventId, TState>
     private readonly CommandHandlerRouter<TAggregateId, TEventId, TState> eventHandlerRouter = new();
     private readonly Queue<object> uncommittedEvents = new();
 
-    public Aggregate(CreationEvent<TAggregateId, TEventId> creationEvent, bool enqueueEvent)
+    public AggregateBase(CreationEvent<TAggregateId, TEventId> creationEvent, bool enqueueCreationEvent)
     {
         metadata = new AggregateMetadata<TAggregateId, TEventId>(creationEvent);
 
         OnRegisterEventHandlers(eventHandlerRouter);
 
-        if (enqueueEvent)
+        if (enqueueCreationEvent)
             uncommittedEvents.Append(creationEvent);
     }
 
@@ -38,9 +40,13 @@ public abstract class Aggregate<TAggregateId, TEventId, TState>
     {
         var eventHandler = eventHandlerRouter.GetEventHandlerInstance<TEvent>();
 
+        var serializedState = JsonSerializer.Serialize(@event);
+        var clonedState = JsonSerializer.Deserialize<TState>(serializedState) ??
+            throw new UnableToCloneAggregateStateException();
+
         try
         {
-            eventHandler.PassBusinessLogic(@event, State, metadata);
+            eventHandler.AssertBusinessLogicRequirementsMet(@event, clonedState, metadata);
         }
         catch(DomainException exception)
         {
@@ -56,8 +62,8 @@ public abstract class Aggregate<TAggregateId, TEventId, TState>
     {
         var eventHandler = eventHandlerRouter.GetEventHandlerInstance<TEvent>();
         
-        eventHandler.PassBusinessLogic(@event, State, metadata);
-        eventHandler.Apply(@event, State, metadata);
+        eventHandler.AssertBusinessLogicRequirementsMet(@event, State, metadata);
+        eventHandler.ApplyEvent(@event, State, metadata);
 
         uncommittedEvents.Append(@event);
     }
@@ -66,6 +72,6 @@ public abstract class Aggregate<TAggregateId, TEventId, TState>
     {
         var eventHandler = eventHandlerRouter.GetEventHandlerInstance<TEvent>();
 
-        eventHandler.Apply(@event, State, metadata);
+        eventHandler.ApplyEvent(@event, State, metadata);
     }
 }

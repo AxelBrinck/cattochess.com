@@ -5,7 +5,7 @@ public interface IAggregateRepository<TAggregateId, TEventId, TState>
     where TEventId : struct
     where TState : class, new()
 {
-    Aggregate<TAggregateId, TEventId, TState>? GetById(TAggregateId id);
-    void Insert(Aggregate<TAggregateId, TEventId, TState> aggregate);
-    void Update(Aggregate<TAggregateId, TEventId, TState> aggregate);
+    AggregateBase<TAggregateId, TEventId, TState>? GetById(TAggregateId id);
+    void Insert(AggregateBase<TAggregateId, TEventId, TState> aggregate);
+    void Update(AggregateBase<TAggregateId, TEventId, TState> aggregate);
 }

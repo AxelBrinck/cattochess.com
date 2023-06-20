@@ -4,14 +4,16 @@ namespace CattoChess.Features.Games.Domain.Classes;
 
 public sealed class Pawn : ChessPiece
 {
-    public Pawn(Player owner, Square square) : 
-        base(owner, square, gameEndsIfDies: false)
+    public Pawn(Player owner, Square square, Orientation orientation) : 
+        base(owner, square, orientation, gameEndsIfDies: false)
     {
 
     }
 
     protected override bool TryMove(Square toSquare, ChessBoard chessBoard)
     {
+        var moveOffset = toSquare - Square;
+
         if (Owner == Player.White)
         {
 

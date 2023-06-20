@@ -3,23 +3,19 @@ using CattoChess.Core.Domain.Events;
 
 namespace CattoChess.Features.Games.Domain.Events.MovePiece;
 
-public sealed class MovingPiece : IEventHandler<Guid, Guid, GameState, PieceMoved>
+public sealed class MovingPiece : IEventApplier<Guid, Guid, GameState, PieceMoved>
 {
-    public void PassBusinessLogic(
+    public void AssertBusinessLogicRequirementsMet(
         PieceMoved @event,
         GameState stateClone,
-        IReadOnlytAggregateMetadata<Guid> aggregateMetadata
-    )
-    {
-        throw new NotImplementedException();
-    }
+        IReadOnlytAggregateMetadata<Guid> metadata
+    ) =>
+        stateClone.Board.AssertPieceAbilityToMove(@event.From, @event.To);
 
-    public IEnumerable<Event<Guid>> Apply(
+    public void ApplyEvent(
         PieceMoved @event,
         GameState state,
-        IReadOnlytAggregateMetadata<Guid> aggregateMetadata
-    )
-    {
-        throw new NotImplementedException();
-    }
+        IReadOnlytAggregateMetadata<Guid> metadata
+    ) =>
+        state.Board.MovePiece(@event.From, @event.To);
 }

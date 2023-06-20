@@ -13,7 +13,7 @@ internal sealed class CommandHandlerRouter<TAggregateId, TEventId, TState> :
 
     public void RegisterEventHandler<TEventHandler, TEvent>()
         where TEvent : Event<TEventId>
-        where TEventHandler : IEventHandler<TAggregateId, TEventId, TState, TEvent>, new()
+        where TEventHandler : IEventApplier<TAggregateId, TEventId, TState, TEvent>, new()
     {
         var eventType = typeof(TEvent);
 
@@ -22,7 +22,7 @@ internal sealed class CommandHandlerRouter<TAggregateId, TEventId, TState> :
         handlers.Add(eventType, typeof(TEventHandler));
     }
 
-    internal IEventHandler<TAggregateId, TEventId, TState, TEvent> GetEventHandlerInstance<TEvent>()
+    internal IEventApplier<TAggregateId, TEventId, TState, TEvent> GetEventHandlerInstance<TEvent>()
         where TEvent : Event<TEventId>
     {
         var eventType = typeof(TEvent);
@@ -32,7 +32,7 @@ internal sealed class CommandHandlerRouter<TAggregateId, TEventId, TState> :
 
         var handlerType = handlers[eventType];
         
-        return (IEventHandler<TAggregateId, TEventId, TState, TEvent>) (Activator.CreateInstance(handlerType) ??
+        return (IEventApplier<TAggregateId, TEventId, TState, TEvent>) (Activator.CreateInstance(handlerType) ??
             throw new CouldNotInstantiateEventHandlerException());
     }
 }

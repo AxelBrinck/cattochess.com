@@ -16,5 +16,8 @@ public sealed record Square
         Y = y;
     }
 
-    public override string ToString() => $"[{X},{Y}]";
+    public static DistanceDetails operator- (Square a, Square b) => 
+        new DistanceDetails(a.X - b.X, a.Y - a.Y); 
+
+    public override string ToString() => $"[{X}, {Y}]";
 }
