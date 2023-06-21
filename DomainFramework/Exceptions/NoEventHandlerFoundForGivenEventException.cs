@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Exceptions;
+namespace DomainFramework.Exceptions;
 
 public sealed class NoEventHandlerFoundForGivenEventException : DomainException
 {

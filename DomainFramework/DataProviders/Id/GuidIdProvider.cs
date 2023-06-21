@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.DataProviders.Id;
+namespace DomainFramework.DataProviders.Id;
 
 public sealed class GuidIdProvider : IIdProvider<Guid>
 {

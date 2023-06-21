@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Domain.Events;
+namespace DomainFramework.Domain.Events;
 
 public interface IEventApplier<TAggregateId, TEventId, TState, TEvent>
     where TAggregateId : struct

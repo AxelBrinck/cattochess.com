@@ -1,4 +1,4 @@
-namespace EventSourcingFramework;
+namespace DomainFramework;
 
 public abstract class DomainException : Exception
 {

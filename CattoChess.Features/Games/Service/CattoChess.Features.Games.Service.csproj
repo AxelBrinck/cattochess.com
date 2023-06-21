@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\CattoChess.Features.Games.Domain.csproj" />
-    <ProjectReference Include="..\..\..\EventSourcingFramework\EventSourcingFramework.csproj" />
+    <ProjectReference Include="..\..\..\DomainFramework\DomainFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup>

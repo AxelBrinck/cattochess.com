@@ -1,6 +1,6 @@
-using EventSourcingFramework.Domain.Events;
+using DomainFramework.Domain.Events;
 
-namespace EventSourcingFramework.Domain;
+namespace DomainFramework.Domain;
 
 public abstract class AggregateBase<TAggregateId, TEventId, TState>
     where TEventId : struct

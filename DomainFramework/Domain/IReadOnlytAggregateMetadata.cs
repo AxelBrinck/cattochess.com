@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Domain;
+namespace DomainFramework.Domain;
 
 public interface IReadOnlytAggregateMetadata<TAggregateId>  where TAggregateId : struct 
 {

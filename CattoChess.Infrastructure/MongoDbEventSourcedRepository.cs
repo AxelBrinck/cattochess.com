@@ -1,4 +1,4 @@
-﻿using EventSourcingFramework;
+﻿using DomainFramework;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 

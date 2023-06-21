@@ -1,4 +1,4 @@
-using EventSourcingFramework.Exceptions;
+using DomainFramework.Exceptions;
 
 namespace CattoChess.Features.Games.Domain.ValueObjects;
 

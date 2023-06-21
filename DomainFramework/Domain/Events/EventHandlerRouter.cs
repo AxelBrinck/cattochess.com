@@ -1,7 +1,7 @@
-using EventSourcingFramework.Domain.Exceptions;
-using EventSourcingFramework.Exceptions;
+using DomainFramework.Domain.Exceptions;
+using DomainFramework.Exceptions;
 
-namespace EventSourcingFramework.Domain.Events;
+namespace DomainFramework.Domain.Events;
 
 internal sealed class EventHandlerRouter<TAggregateId, TEventId, TState> : 
     IEventHandlerRegistrator<TAggregateId, TEventId, TState>

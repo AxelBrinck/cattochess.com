@@ -1,6 +1,6 @@
-using EventSourcingFramework.Domain.Events;
+using DomainFramework.Domain.Events;
 
-namespace EventSourcingFramework.Domain.Commands;
+namespace DomainFramework.Domain.Commands;
 
 public interface ICommandHandler<TCommand, TEventId, TState, TAggregateId>
     where TCommand : ICommand

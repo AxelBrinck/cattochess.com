@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Domain.Exceptions;
+namespace DomainFramework.Domain.Exceptions;
 
 public sealed class CouldNotInstantiateEventHandlerException : DomainException
 {

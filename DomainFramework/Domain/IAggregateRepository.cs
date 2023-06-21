@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Domain;
+namespace DomainFramework.Domain;
 
 public interface IAggregateRepository<TAggregateId, TEventId, TState>
     where TAggregateId : struct

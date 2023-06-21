@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.DataProviders.Id;
+namespace DomainFramework.DataProviders.Id;
 
 public interface IIdProvider<TId> where TId : struct
 {

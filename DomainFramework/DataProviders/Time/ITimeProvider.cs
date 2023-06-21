@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.DataProviders.Time;
+namespace DomainFramework.DataProviders.Time;
 
 public interface ITimeProvider
 {

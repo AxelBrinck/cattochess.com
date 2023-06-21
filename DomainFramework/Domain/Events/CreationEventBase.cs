@@ -1,7 +1,7 @@
-using EventSourcingFramework.DataProviders.Id;
-using EventSourcingFramework.DataProviders.Time;
+using DomainFramework.DataProviders.Id;
+using DomainFramework.DataProviders.Time;
 
-namespace EventSourcingFramework.Domain.Events;
+namespace DomainFramework.Domain.Events;
 
 public abstract record CreationEventBase<TAggregateId, TEventId> : EventBase<TEventId>
     where TAggregateId : struct

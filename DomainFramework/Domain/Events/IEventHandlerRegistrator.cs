@@ -1,4 +1,4 @@
-namespace EventSourcingFramework.Domain.Events;
+namespace DomainFramework.Domain.Events;
 
 public interface IEventHandlerRegistrator<TAggregateId, TEventId, TState>
     where TAggregateId : struct

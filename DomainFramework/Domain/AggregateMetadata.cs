@@ -1,6 +1,6 @@
-using EventSourcingFramework.Domain.Events;
+using DomainFramework.Domain.Events;
 
-namespace EventSourcingFramework.Domain;
+namespace DomainFramework.Domain;
 
 public sealed class AggregateMetadata<TAggregateId, TEventId> : IReadOnlytAggregateMetadata<TAggregateId>
     where TAggregateId : struct

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcingFramework", "EventSourcingFramework\EventSourcingFramework.csproj", "{79674D9F-51B1-41D6-9712-C05E7AB377C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainFramework", "DomainFramework\DomainFramework.csproj", "{79674D9F-51B1-41D6-9712-C05E7AB377C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CattoChess.Features", "CattoChess.Features", "{08436491-51CE-4157-9454-DD4F7DA9313C}"
 EndProject
