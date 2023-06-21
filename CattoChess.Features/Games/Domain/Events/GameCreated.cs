@@ -5,7 +5,7 @@ using EventSourcingFramework.DataProviders.Time;
 
 namespace CattoChess.Features.Games.Domain.Events;
 
-public sealed record GameCreated : CreationEvent<Guid, Guid>
+public sealed record GameCreated : CreationEventBase<Guid, Guid>
 {
     public ChessBoard Board { get; }
     

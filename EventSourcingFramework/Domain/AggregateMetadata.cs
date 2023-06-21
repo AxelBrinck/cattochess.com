@@ -11,7 +11,7 @@ public sealed class AggregateMetadata<TAggregateId, TEventId> : IReadOnlytAggreg
     public DateTime? DeletionTimestamp { get; set;  }
     public DateTime LastEventTimestamp { get; set; }
 
-    public AggregateMetadata(CreationEvent<TAggregateId, TEventId> creationEvent)
+    internal AggregateMetadata(CreationEventBase<TAggregateId, TEventId> creationEvent)
     {
         AggregateId = creationEvent.AggregateId;
         CreationTimestamp = creationEvent.Timestamp;

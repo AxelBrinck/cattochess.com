@@ -3,18 +3,18 @@ using EventSourcingFramework.DataProviders.Time;
 
 namespace EventSourcingFramework.Domain.Events;
 
-public abstract record Event<TEventId> where TEventId : struct
+public abstract record EventBase<TEventId> where TEventId : struct
 {
     public TEventId Id { get; }
     public DateTime Timestamp { get; }
 
-    public Event(IIdProvider<TEventId> idProvider, ITimeProvider timeProvider)
+    public EventBase(IIdProvider<TEventId> idProvider, ITimeProvider timeProvider)
     {
         Id = idProvider.NewId();
         Timestamp = timeProvider.GetCurrentTime();
     }
 
-    public Event(TEventId id, DateTime timestamp)
+    public EventBase(TEventId id, DateTime timestamp)
     {
         Id = id;
         Timestamp = timestamp;

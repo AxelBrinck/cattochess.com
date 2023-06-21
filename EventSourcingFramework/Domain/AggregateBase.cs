@@ -13,7 +13,7 @@ public abstract class AggregateBase<TAggregateId, TEventId, TState>
     private readonly EventHandlerRouter<TAggregateId, TEventId, TState> eventHandlerRouter = new();
     private readonly Queue<object> uncommittedEvents = new();
 
-    public AggregateBase(CreationEvent<TAggregateId, TEventId> creationEvent, bool enqueueCreationEvent)
+    public AggregateBase(CreationEventBase<TAggregateId, TEventId> creationEvent, bool enqueueCreationEvent)
     {
         metadata = new AggregateMetadata<TAggregateId, TEventId>(creationEvent);
 
@@ -68,10 +68,10 @@ public abstract class AggregateBase<TAggregateId, TEventId, TState>
     }
     */
 
-    public void ApplyDirectly<TEvent>(TEvent @event) where TEvent : Event<TEventId>
+    public void ApplyDirectly<TEvent>(TEvent @event) where TEvent : EventBase<TEventId>
     {
         var eventHandler = eventHandlerRouter.GetEventHandlerInstance<TEvent>();
 
-        eventHandler.Handle(@event, State, metadata);
+        //eventHandler.Handle(@event, State, metadata);
     }
 }

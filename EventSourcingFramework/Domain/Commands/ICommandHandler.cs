@@ -8,7 +8,7 @@ public interface ICommandHandler<TCommand, TEventId, TState, TAggregateId>
     where TState : class
     where TAggregateId : struct
 {
-    public IEnumerable<Event<TEventId>> Handle(
+    public static IEnumerable<EventBase<TEventId>> Handle(
         TCommand command,
         TState state,
         IReadOnlytAggregateMetadata<TAggregateId> metadata)

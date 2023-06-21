@@ -5,7 +5,7 @@ using EventSourcingFramework.DataProviders.Time;
 
 namespace CattoChess.Features.Games.Domain.Events.MovePiece;
 
-public sealed record PieceMoved : Event<Guid>
+public sealed record PieceMoved : EventBase<Guid>
 {
     public Square From { get; }
     public Square To { get; }

@@ -12,7 +12,7 @@ internal sealed class EventHandlerRouter<TAggregateId, TEventId, TState> :
     private Dictionary<Type, Type> handlers = new();
 
     public void RegisterEventHandler<TEventHandler, TEvent>()
-        where TEvent : Event<TEventId>
+        where TEvent : EventBase<TEventId>
         where TEventHandler : IEventApplier<TAggregateId, TEventId, TState, TEvent>, new()
     {
         var eventType = typeof(TEvent);
@@ -23,7 +23,7 @@ internal sealed class EventHandlerRouter<TAggregateId, TEventId, TState> :
     }
 
     internal IEventApplier<TAggregateId, TEventId, TState, TEvent> GetEventHandlerInstance<TEvent>()
-        where TEvent : Event<TEventId>
+        where TEvent : EventBase<TEventId>
     {
         var eventType = typeof(TEvent);
 
