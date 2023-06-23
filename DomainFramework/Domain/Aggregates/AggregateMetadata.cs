@@ -1,6 +1,6 @@
 using DomainFramework.Domain.Events;
 
-namespace DomainFramework.Domain;
+namespace DomainFramework.Domain.Aggregates;
 
 public sealed class AggregateMetadata<TAggregateId, TEventId> : IReadOnlytAggregateMetadata<TAggregateId>
     where TAggregateId : struct
@@ -11,7 +11,7 @@ public sealed class AggregateMetadata<TAggregateId, TEventId> : IReadOnlytAggreg
     public DateTime? DeletionTimestamp { get; set;  }
     public DateTime LastEventTimestamp { get; set; }
 
-    internal AggregateMetadata(CreationEventBase<TAggregateId, TEventId> creationEvent)
+    internal AggregateMetadata(DomainCreationEventBase<TAggregateId, TEventId> creationEvent)
     {
         AggregateId = creationEvent.AggregateId;
         CreationTimestamp = creationEvent.Timestamp;

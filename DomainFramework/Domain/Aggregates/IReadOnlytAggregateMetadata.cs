@@ -1,4 +1,4 @@
-namespace DomainFramework.Domain;
+namespace DomainFramework.Domain.Aggregates;
 
 public interface IReadOnlytAggregateMetadata<TAggregateId>  where TAggregateId : struct 
 {

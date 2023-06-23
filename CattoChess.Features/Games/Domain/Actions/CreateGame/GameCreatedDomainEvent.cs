@@ -3,13 +3,13 @@ using CattoChess.Features.Games.Domain.Classes;
 using DomainFramework.DataProviders.Id;
 using DomainFramework.DataProviders.Time;
 
-namespace CattoChess.Features.Games.Domain.Events;
+namespace CattoChess.Features.Games.Domain.Actions.CreateGame;
 
-public sealed record GameCreated : CreationEventBase<Guid, Guid>
+public sealed record GameCreatedDomainEvent : DomainCreationEventBase<Guid, Guid>
 {
     public ChessBoard Board { get; }
     
-    public GameCreated(
+    public GameCreatedDomainEvent(
         Guid aggregateId,
         ChessBoard board,
         string fullyQualifiedEventClassName,
@@ -23,7 +23,7 @@ public sealed record GameCreated : CreationEventBase<Guid, Guid>
     ) =>
         Board = board;
 
-    public GameCreated(
+    public GameCreatedDomainEvent(
         Guid aggregateId,
         ChessBoard board,
         string fullyQualifiedEventClassName,

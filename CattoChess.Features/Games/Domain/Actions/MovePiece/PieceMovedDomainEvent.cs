@@ -3,14 +3,14 @@ using CattoChess.Features.Games.Domain.ValueObjects;
 using DomainFramework.DataProviders.Id;
 using DomainFramework.DataProviders.Time;
 
-namespace CattoChess.Features.Games.Domain.Events.MovePiece;
+namespace CattoChess.Features.Games.Domain.Actions.MovePiece;
 
-public sealed record PieceMoved : EventBase<Guid>
+public sealed record PieceMovedDomainEvent : DomainEventBase<Guid>
 {
     public Square From { get; }
     public Square To { get; }
 
-    public PieceMoved(
+    public PieceMovedDomainEvent(
         Square from,
         Square to,
         IIdProvider<Guid> idProvider,
@@ -21,7 +21,7 @@ public sealed record PieceMoved : EventBase<Guid>
         To = to;
     }
 
-    public PieceMoved(
+    public PieceMovedDomainEvent(
         Square from,
         Square to,
         Guid id,

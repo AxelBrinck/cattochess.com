@@ -3,13 +3,13 @@ using DomainFramework.DataProviders.Time;
 
 namespace DomainFramework.Domain.Events;
 
-public abstract record CreationEventBase<TAggregateId, TEventId> : EventBase<TEventId>
+public abstract record DomainCreationEventBase<TAggregateId, TEventId> : DomainEventBase<TEventId>
     where TAggregateId : struct
     where TEventId : struct
 {
     public TAggregateId AggregateId { get; }
 
-    public CreationEventBase(
+    public DomainCreationEventBase(
         TAggregateId aggregateId,
         string fullyQualifiedEventClassName,
         IIdProvider<TEventId> idProvider,
@@ -17,7 +17,7 @@ public abstract record CreationEventBase<TAggregateId, TEventId> : EventBase<TEv
     ) : base(idProvider, timeProvider) =>
         AggregateId = aggregateId;
 
-    public CreationEventBase(
+    public DomainCreationEventBase(
         TAggregateId aggregateId,
         string fullyQualifiedEventClassName,
         TEventId id,

@@ -1,5 +1,5 @@
+using CattoChess.Features.Games.Domain.Actions.CreateGame;
 using CattoChess.Features.Games.Domain.Classes;
-using CattoChess.Features.Games.Domain.Events;
 using CattoChess.Features.Games.Domain.ValueObjects;
 using DomainFramework.DataProviders.Id;
 using DomainFramework.DataProviders.Time;
@@ -14,7 +14,7 @@ public static class StandardGameFactory
         ITimeProvider timeProvider
     ) =>
         new GameAggregate(
-            new GameCreated(
+            new GameCreatedDomainEvent(
                 gameId,
                 ChessBoard.CreateStandardBoard(),
                 typeof(GameAggregate).FullName ?? throw new Exception(),
