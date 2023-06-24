@@ -24,7 +24,7 @@ public sealed class ShoppingCartAggregate : AggregateBase<ShoppingCartAggregateS
     }
 
     protected override void OnRegisterEventHandlers(
-        TypeMapper<DomainEventBase<Guid>, IDomainEventHandler> mapper
+        TypeMapper<IDomainEvent<Guid>, IDomainEventHandler> mapper
     )
     {
         throw new NotImplementedException();

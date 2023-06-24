@@ -21,7 +21,7 @@ public sealed class GameAggregate : AggregateBase<Guid, Guid, GameAggregateState
     }
 
     protected override void OnRegisterEventHandlers(
-        TypeMapper<DomainEventBase<Guid>, IDomainEventHandler> mapper
+        TypeMapper<IDomainEvent<Guid>, IDomainEventHandler> mapper
     )
     {
         mapper.DefineMap<PieceMovedDomainEvent, PieceMovedDomainEventHandler>();

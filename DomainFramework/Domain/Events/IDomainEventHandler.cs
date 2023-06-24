@@ -12,7 +12,7 @@ public interface IDomainEventHandler<TAggregateId, TEventId, TEvent, TAggregateS
     IDomainEventHandler
     where TAggregateId : struct
     where TEventId : struct
-    where TEvent : DomainEventBase<TEventId>
+    where TEvent : IDomainEvent<TEventId>
     where TAggregateState : class, ICloneable
 {
 

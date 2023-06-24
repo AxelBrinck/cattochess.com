@@ -8,7 +8,7 @@ public abstract class AggregateBase<TAggregateState> : AggregateBase<Guid, Guid,
     where TAggregateState : class, ICloneable, new()
 {
     public AggregateBase(
-        DomainCreationEventBase<Guid, Guid> creationEvent,
+        IDomainCreationEvent<Guid, Guid> creationEvent,
         bool enqueueCreationEvent
     ) : base(creationEvent, enqueueCreationEvent)
     {
@@ -26,10 +26,10 @@ public abstract class AggregateBase<TAggregateId, TEventId, TAggregateState>
     private readonly AggregateMetadata<TAggregateId, TEventId> metadata;
     private readonly Queue<object> uncommittedEvents = new();
     private readonly TypeMapper<IDomainCommand, IDomainCommandHandler> commandHandlers = new();
-    private readonly TypeMapper<DomainEventBase<TEventId>, IDomainEventHandler> eventHandlers = new();
+    private readonly TypeMapper<IDomainEvent<TEventId>, IDomainEventHandler> eventHandlers = new();
 
     public AggregateBase(
-        DomainCreationEventBase<TAggregateId, TEventId> creationEvent,
+        IDomainCreationEvent<TAggregateId, TEventId> creationEvent,
         bool enqueueCreationEvent
     )
     {
@@ -43,7 +43,7 @@ public abstract class AggregateBase<TAggregateId, TEventId, TAggregateState>
     }
 
     protected abstract void OnRegisterCommandHandlers(TypeMapper<IDomainCommand, IDomainCommandHandler> mapper);
-    protected abstract void OnRegisterEventHandlers(TypeMapper<DomainEventBase<TEventId>, IDomainEventHandler> mapper);
+    protected abstract void OnRegisterEventHandlers(TypeMapper<IDomainEvent<TEventId>, IDomainEventHandler> mapper);
 
     public IEnumerable<object> DequeueAllUncommitedEvents()
     {
