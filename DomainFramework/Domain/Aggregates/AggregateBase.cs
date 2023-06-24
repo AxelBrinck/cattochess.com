@@ -4,6 +4,18 @@ using DomainFramework.Utils;
 
 namespace DomainFramework.Domain.Aggregates;
 
+public abstract class AggregateBase<TAggregateState> : AggregateBase<Guid, Guid, TAggregateState>
+    where TAggregateState : class, ICloneable, new()
+{
+    public AggregateBase(
+        DomainCreationEventBase<Guid, Guid> creationEvent,
+        bool enqueueCreationEvent
+    ) : base(creationEvent, enqueueCreationEvent)
+    {
+
+    }
+}
+
 public abstract class AggregateBase<TAggregateId, TEventId, TAggregateState>
     where TEventId : struct
     where TAggregateId : struct
@@ -13,8 +25,8 @@ public abstract class AggregateBase<TAggregateId, TEventId, TAggregateState>
 
     private readonly AggregateMetadata<TAggregateId, TEventId> metadata;
     private readonly Queue<object> uncommittedEvents = new();
-    private readonly TypeMapper<IDomainCommand, IDomainCommandHandler<TAggregateId, TAggregateState>> commandHandlers = new();
-    private readonly TypeMapper<DomainEventBase<TEventId>, IDomainEventHandler<TAggregateId, TEventId, TAggregateState>> eventHandlers = new();
+    private readonly TypeMapper<IDomainCommand, IDomainCommandHandler> commandHandlers = new();
+    private readonly TypeMapper<DomainEventBase<TEventId>, IDomainEventHandler> eventHandlers = new();
 
     public AggregateBase(
         DomainCreationEventBase<TAggregateId, TEventId> creationEvent,
@@ -30,8 +42,8 @@ public abstract class AggregateBase<TAggregateId, TEventId, TAggregateState>
             uncommittedEvents.Append(creationEvent);
     }
 
-    protected abstract void OnRegisterCommandHandlers(TypeMapper<IDomainCommand, IDomainCommandHandler<TAggregateId, TAggregateState>> mapper);
-    protected abstract void OnRegisterEventHandlers(TypeMapper<DomainEventBase<TEventId>, IDomainEventHandler<TAggregateId, TEventId, TAggregateState>> mapper);
+    protected abstract void OnRegisterCommandHandlers(TypeMapper<IDomainCommand, IDomainCommandHandler> mapper);
+    protected abstract void OnRegisterEventHandlers(TypeMapper<DomainEventBase<TEventId>, IDomainEventHandler> mapper);
 
     public IEnumerable<object> DequeueAllUncommitedEvents()
     {

@@ -1,4 +1,4 @@
-using CattoChess.Features.Games.Domain.Actions.CreateGame;
+using CattoChess.Features.Games.Domain.Actions.Create;
 using CattoChess.Features.Games.Domain.Classes;
 using CattoChess.Features.Games.Domain.ValueObjects;
 using DomainFramework.DataProviders.Id;

@@ -3,7 +3,7 @@ using CattoChess.Features.Games.Domain.Classes;
 using DomainFramework.DataProviders.Id;
 using DomainFramework.DataProviders.Time;
 
-namespace CattoChess.Features.Games.Domain.Actions.CreateGame;
+namespace CattoChess.Features.Games.Domain.Actions.Create;
 
 public sealed record GameCreatedDomainEvent : DomainCreationEventBase<Guid, Guid>
 {

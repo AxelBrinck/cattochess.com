@@ -3,6 +3,21 @@ using DomainFramework.DataProviders.Time;
 
 namespace DomainFramework.Domain.Events;
 
+public abstract record DomainEventBase : DomainEventBase<Guid>
+{
+    public DomainEventBase(IIdProvider<Guid> idProvider, ITimeProvider timeProvider) :
+        base(idProvider, timeProvider)
+    {
+        
+    }
+
+    public DomainEventBase(Guid id, DateTime timestamp) :
+        base(id, timestamp)
+    {
+        
+    }
+}
+
 public abstract record DomainEventBase<TEventId> where TEventId : struct
 {
     public TEventId Id { get; }

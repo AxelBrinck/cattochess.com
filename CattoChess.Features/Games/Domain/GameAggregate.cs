@@ -1,5 +1,5 @@
 using DomainFramework.Domain.Aggregates;
-using CattoChess.Features.Games.Domain.Actions.CreateGame;
+using CattoChess.Features.Games.Domain.Actions.Create;
 using CattoChess.Features.Games.Domain.Actions.MovePiece;
 using DomainFramework.Utils;
 using DomainFramework.Domain.Events;
@@ -14,14 +14,14 @@ public sealed class GameAggregate : AggregateBase<Guid, Guid, GameAggregateState
         State.Board = creationEvent.Board;
 
     protected override void OnRegisterCommandHandlers(
-        TypeMapper<IDomainCommand, IDomainCommandHandler<Guid, GameAggregateState>> mapper
+        TypeMapper<IDomainCommand, IDomainCommandHandler> mapper
     )
     {
         mapper.DefineMap<MovePieceDomainCommand, MovePieceDomainCommandHandler>();
     }
 
     protected override void OnRegisterEventHandlers(
-        TypeMapper<DomainEventBase<Guid>, IDomainEventHandler<Guid, Guid, GameAggregateState>> mapper
+        TypeMapper<DomainEventBase<Guid>, IDomainEventHandler> mapper
     )
     {
         mapper.DefineMap<PieceMovedDomainEvent, PieceMovedDomainEventHandler>();
