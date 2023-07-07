@@ -4,6 +4,6 @@ public interface IReadOnlytAggregateMetadata<TAggregateId>  where TAggregateId :
 {
     TAggregateId AggregateId { get; }
     DateTime CreationTimestamp { get; }
-    DateTime? DeletionTimestamp { get; }
     DateTime LastEventTimestamp { get; }
+    int Version { get; }
 }

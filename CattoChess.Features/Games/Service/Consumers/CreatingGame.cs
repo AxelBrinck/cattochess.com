@@ -2,17 +2,17 @@ using CattoChess.Features.Games.Domain;
 using CattoChess.Features.Games.Service.Commands;
 using MassTransit;
 using DomainFramework.DataProviders.Time;
-using DomainFramework.Domain.Aggregates;
+using DomainFramework.Domain.Repositories;
 
 namespace CattoChess.Features.Games.Service.Consumers;
 
 public sealed class CreatingGame : IConsumer<CreateGame>
 {
-    private readonly IAggregateRepository<Guid, Guid, GameAggregateState> repository;
+    private readonly IAggregateRepository<Guid, Guid, GameAggregateState, GameAggregate> repository;
     private readonly ITimeProvider timeProvider;
 
     public CreatingGame(
-        IAggregateRepository<Guid, Guid, GameAggregateState> repository,
+        IAggregateRepository<Guid, Guid, GameAggregateState, GameAggregate> repository,
         ITimeProvider timeProvider
     )
     {
